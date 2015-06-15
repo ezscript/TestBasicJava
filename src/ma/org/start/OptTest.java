@@ -36,9 +36,6 @@ public class OptTest {
 		}
 	}
 	
-	
-	
-	
 	interface IOpt{
 		void optPrint(Object o);
 	}	
