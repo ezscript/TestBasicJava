@@ -3,24 +3,32 @@ package ma.org.str;
 public class StringTest {
 
 	public static void main(String[] args) {
-		
+		b();
 
 		
 	}
 	
 	public void a(){
 		String strA = new String("A");
-		
 		// String strA = "A";
 	}
 
-	public void b(){
+	public static String b(){
 		String abc = "abc";
-		for(int  i = 0; i< 1000; i++){
+		for(int  i = 0; i< 500000; i++){
 			abc = abc + i;
 		}
-		
 		//StringBuffer
+		return abc;
+	}
+	public static String b_1(){
+		int  i = 0;
+		StringBuffer sb = new StringBuffer("abc");
+		
+		for(; i< 500000; i++){
+			sb.append(i);// = abc + i;
+		}
+		return sb.toString();
 	}
 	
 	public void c(){
