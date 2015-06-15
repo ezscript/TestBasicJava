@@ -11,7 +11,7 @@ public class TestErrCatch implements UncaughtExceptionHandler {
 	public void uncaughtException(Thread t, Throwable e) {
 		System.out.println("TestErrCatch catch it...");
 		System.out.println(t.getName() + "; errMsg:" + e.getMessage());
-		throw new RuntimeException("这个异常没人管");
+		throw new Error("这个异常没人管");
 	}
 
 	public static void main(String[] args) throws Exception {

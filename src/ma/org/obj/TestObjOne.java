@@ -3,13 +3,11 @@ package ma.org.obj;
 public class TestObjOne {
 
 	public static void main(String[] args) {
-		Object à¸;
 		ParentOne po = new ParentOne();
 		System.out.println(po.add(1, 1));
-		
 		ChildOne co = new ChildOne();
-		
 		System.out.println(co.add(1, 1));
+		
 	}
 
 	
