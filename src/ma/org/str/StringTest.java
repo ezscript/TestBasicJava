@@ -3,11 +3,15 @@ package ma.org.str;
 public class StringTest {
 
 	public static void main(String[] args) {
-		b();
+		StringBuffer sb = new StringBuffer("abc");
 
-		
+		System.out.println(sb.append(getObjInt()));
 	}
 	
+	private static Integer getObjInt() {
+		return 65538;
+	}
+
 	public void a(){
 		String strA = new String("A");
 		// String strA = "A";
