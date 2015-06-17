@@ -10,7 +10,7 @@ public class OptTest {
 		IOpt optOne = new IOpt(){
 			public void optPrint(Object o) {
 				System.out.println("opt.. one...");
-			}
+			} 
 		};
 		
 		IOpt optTwo = new IOpt(){
