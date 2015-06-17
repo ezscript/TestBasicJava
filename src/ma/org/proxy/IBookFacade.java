@@ -1,5 +1,5 @@
 package ma.org.proxy;
 
-public interface BookFacade {
+public interface IBookFacade {
 	void addBook();  
 }

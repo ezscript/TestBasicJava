@@ -71,6 +71,10 @@ public class BeanFactory {
 						bean.addHandler(aopBean.getProxy());
 					}
 				}
+				
+				if(bean.isNeedDefaultAop()){
+					bean.addHandler(new DefaultProxy());
+				}
 			}
 		});
 		
@@ -117,15 +121,20 @@ public class BeanFactory {
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
+		addField(target);
 		Bean bean = null;
 		if(beanMap.containsKey(name)){
 			bean = (Bean)beanMap.get(name);
-			bean.setTarget(target,new DefaultProxy());
+			bean.setTarget(target);
+			//,new DefaultProxy());
 		//	bean.initFields();
 		}else{
-			bean =Bean.createBean(name, target, new DefaultProxy());
+			//bean =Bean.createBean(name, target, new DefaultProxy());
+			bean = Bean.createBean(name);
+			bean.setTarget(target);
 			beanMap.put(name, bean);
 		}
+		bean.setNeedDefaultAop(true);
 		bean.setOrgClass(c);
 		
 	}

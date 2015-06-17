@@ -12,18 +12,12 @@ public class TestProxy {
 		
 		BookFacadeProxy proxy = new BookFacadeProxy(impl);  
 		
-        BookFacade bookProxy = (BookFacade) ProxyUtil.bind(BookFacadeImpl.class,proxy);  
+        IBookFacade bookProxy = (IBookFacade) ProxyUtil.bind(BookFacadeImpl.class,proxy);  
         
         bookProxy.addBook();  
      //   impl.addBook();
-        test2();
 	}
 
-	private static void test2() {
-		
-		
-		
-	}
 
 }
 

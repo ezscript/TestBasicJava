@@ -14,7 +14,7 @@ public class Bean {
 	
 	private Object handlerTarget = null;
 	
-	
+	private boolean needDefaultAop = false;
 	
 	public List<BeanField> beanFields = new ArrayList<BeanField>();
 	
@@ -28,7 +28,7 @@ public class Bean {
 		return bean;
 	}
 	
-	public static Bean createBean(String name,Object target , InvocationHandlerExt handler){
+	/*public static Bean createBean(String name,Object target , InvocationHandlerExt handler){
 		Bean bean =createBean(name);
 		bean.setTarget(target);
 		
@@ -36,7 +36,7 @@ public class Bean {
 		
 		bean.handlerTarget = ProxyUtil.bind(target.getClass(), handler);
 		return bean;
-	}
+	}*/
 	
 	public String getName() {
 		return name;
@@ -63,11 +63,11 @@ public class Bean {
 		this.handlerTarget = target;
 	}
 	
-	public void setTarget(Object handlerObj , InvocationHandlerExt handler) {
+/*	public void setTarget(Object handlerObj , InvocationHandlerExt handler) {
 		handler.setTarget(handlerObj);
 		
 		this.handlerTarget = ProxyUtil.bind(handlerObj.getClass(), handler);
-	}
+	}*/
 	
 	
 	public void addHandler(InvocationHandlerExt handler){
@@ -76,6 +76,14 @@ public class Bean {
 		
 	}
 	
+	public boolean isNeedDefaultAop() {
+		return needDefaultAop;
+	}
+
+	public void setNeedDefaultAop(boolean needDefaultAop) {
+		this.needDefaultAop = needDefaultAop;
+	}
+
 	public void initFields(){
 		for(BeanField bf : beanFields){
 			Object target = bf.target;

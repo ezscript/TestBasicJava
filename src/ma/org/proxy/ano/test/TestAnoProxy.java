@@ -1,8 +1,5 @@
 package ma.org.proxy.ano.test;
 
-import ma.org.proxy.BookFacade;
-import ma.org.proxy.ProxyUtil;
-import ma.org.proxy.ano.Bean;
 import ma.org.proxy.ano.BeanFactory;
 
 
@@ -22,9 +19,9 @@ public class TestAnoProxy {
 		System.out.println(obj.getClass());
 		
 		((MyAction)obj).JustDoIt();
-		System.out.println("xxxxxxxxxxxxxxxxxxx");
+/*		System.out.println("xxxxxxxxxxxxxxxxxxx");
 		BookFacade bf = (BookFacade)BeanFactory.getBean("myBookFacadeService");
-		bf.addBook();
+		bf.addBook();*/
 	}
 	
 

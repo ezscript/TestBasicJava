@@ -1,6 +1,6 @@
 package ma.org.proxy.ano.test;
 
-import ma.org.proxy.BookFacade;
+import ma.org.proxy.IBookFacade;
 import ma.org.proxy.ano.declare.Action;
 import ma.org.proxy.ano.declare.AutoField;
 
@@ -8,14 +8,12 @@ import ma.org.proxy.ano.declare.AutoField;
 public class MyAction {
 	
 	@AutoField
-	private BookFacade myBookFacadeService =null;
+	private IBookFacade myBookFacadeService =null;
 	
 	
 	public void JustDoIt(){
 		System.out.println("start JustDoIt");
-		
 		myBookFacadeService.addBook();
-		
 		System.out.println("over JustDoIt");
 	}
 	

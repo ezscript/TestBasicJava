@@ -26,11 +26,11 @@ public class DefaultProxy implements InvocationHandlerExt{
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 		Object result = null;
-		System.out.println("proxy start ...");
+		System.out.println("default proxy start ...");
 		
 		result = method.invoke(target, args);
 		
-		System.out.println("proxy end ...");
+		System.out.println("default proxy end ...");
 		return result;
 	}
 }
