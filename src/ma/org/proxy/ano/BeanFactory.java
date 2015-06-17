@@ -15,32 +15,88 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import ma.org.proxy.ano.test.MyAction;
+import ma.org.proxy.ano.declare.Action;
+import ma.org.proxy.ano.declare.Aop;
+import ma.org.proxy.ano.declare.AutoField;
+import ma.org.proxy.ano.declare.InvocationHandlerExt;
+import ma.org.proxy.ano.declare.Service;
+import ma.org.util.CollectionUtil;
+import ma.org.util.CreateUtil;
 
 public class BeanFactory {
 	private static Map<String,Bean> beanMap = new HashMap<String,Bean>();
 	
-
+	private static Set<AopBean> aopBeanSet = CreateUtil.set();
+	
 	public static void init(String pack){
 		Set<Class<?>> set =  getClasses(pack);
+		
+		
+		Set<Class<?>> serviceSet = CreateUtil.set();
+		Set<Class<?>> actionSet = CreateUtil.set();
+		Set<Class<?>> aopSet = CreateUtil.set();
 		
 		for(Class<?> c : set){
 			boolean isService = c.isAnnotationPresent(Service.class);
 			  
 			boolean isAction = c.isAnnotationPresent(Action.class);
-			
 			if(isService){
-				addService(c);
-			//	System.out.println("find service... " + c.getName());
+			//	addService(c);
+				serviceSet.add(c);
 			}else if(isAction){
-				addAction(c);
-			//	System.out.println("find action... " + c.getName());
+				actionSet.add(c);
+			//	addAction(c);
+			}else if(c.isAnnotationPresent(Aop.class)){
+				aopSet.add(c);
 			}
 		}
-//		System.out.println(beanMap);
+		
+		for(Class<?> c : aopSet){
+			addAop(c);
+		}
+		
+		for(Class<?> c : serviceSet){
+			addService(c);
+		}
+		
+		for(Class<?> c : actionSet){
+			addAction(c);
+		}
+		
+	
+		CollectionUtil.optMapEntry(beanMap, new CollectionUtil.IOptMap<String,Bean>() {
+			public void opt(String beanName, Bean bean) {
+				for(AopBean aopBean : aopBeanSet){
+					if(aopBean.matches(beanName)){
+						bean.addHandler(aopBean.getProxy());
+					}
+				}
+			}
+		});
+		
+		CollectionUtil.optMapEntry(beanMap, new CollectionUtil.IOptMap<String,Bean>() {
+			public void opt(String beanName, Bean bean) {
+				bean.initFields();
+			}
+		});
 		
 	}
 	
+	
+	
+	
+	private static void addAop(Class<?> c) {
+	
+		AopBean aopBean = new AopBean();
+		aopBean.setProxyClass(c);
+		Aop aop = (Aop)c.getAnnotation(Aop.class);
+		aopBean.setReg(aop.targetBean());
+		aopBeanSet.add(aopBean);
+	}
+
+
+
+
 	public static Object getBean(String beanName){
 		if(beanMap.containsKey(beanName)){
 			return beanMap.get(beanName).getTarget();
@@ -61,13 +117,16 @@ public class BeanFactory {
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
+		Bean bean = null;
 		if(beanMap.containsKey(name)){
-			Bean bean =(Bean)beanMap.get(name);
-			bean.setTarget(target,new AnyProxy());
+			bean = (Bean)beanMap.get(name);
+			bean.setTarget(target,new DefaultProxy());
+		//	bean.initFields();
 		}else{
-			Bean bean =Bean.createBean(name, target, new AnyProxy());
+			bean =Bean.createBean(name, target, new DefaultProxy());
 			beanMap.put(name, bean);
 		}
+		bean.setOrgClass(c);
 		
 	}
 
@@ -87,8 +146,10 @@ public class BeanFactory {
 		}
 		addField(target);
 		Bean bean = Bean.createBean(name);
+		bean.setOrgClass(c);
 		bean.setTarget(target);
 		beanMap.put(name, bean);
+		
 	}
 
 	private static void addField(Object target){
@@ -105,18 +166,17 @@ public class BeanFactory {
 					beanName = f.getName();
 				}
 				try {
+					
+					Bean bean = null;
 					if(beanMap.containsKey(beanName)){
-						f.setAccessible(true);
-						f.set(target, getBean(beanName));
+						bean = beanMap.get(beanName);
 					}else{
-						Bean bean = Bean.createBean(beanName);
-						bean.addField(f, target);
-						
+						bean = Bean.createBean(beanName);
 						beanMap.put(beanName, bean);
 					}
+					bean.addField(f, target);
+					
 				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 				}
 			}

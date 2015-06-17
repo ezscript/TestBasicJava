@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ma.org.proxy.ProxyUtil;
+import ma.org.proxy.ano.declare.InvocationHandlerExt;
 
 public class Bean {
 	private String name =null;
-	private boolean isInit = false;
+	
+	private Class<?> orgClass = null;
 	
 	private Object handlerTarget = null;
+	
+	
 	
 	public List<BeanField> beanFields = new ArrayList<BeanField>();
 	
@@ -27,6 +31,10 @@ public class Bean {
 	public static Bean createBean(String name,Object target , InvocationHandlerExt handler){
 		Bean bean =createBean(name);
 		bean.setTarget(target);
+		
+		handler.setTarget(target);
+		
+		bean.handlerTarget = ProxyUtil.bind(target.getClass(), handler);
 		return bean;
 	}
 	
@@ -37,33 +45,38 @@ public class Bean {
 		this.name = name;
 	}
 	
-	public boolean isInit() {
-		return isInit;
-	}
 
 	
 	public Object getTarget() {
 		return handlerTarget;
 	}
 	
+	public Class<?> getOrgClass() {
+		return orgClass;
+	}
+
+	public void setOrgClass(Class<?> orgClass) {
+		this.orgClass = orgClass;
+	}
+
 	public void setTarget(Object target){
-		if(target != null){
-			isInit = true;
-		}else{
-			isInit = false;
-		}
 		this.handlerTarget = target;
 	}
 	
 	public void setTarget(Object handlerObj , InvocationHandlerExt handler) {
-		if(handlerObj != null){
-			isInit = true;
-		}else{
-			isInit = false;
-		}
 		handler.setTarget(handlerObj);
 		
 		this.handlerTarget = ProxyUtil.bind(handlerObj.getClass(), handler);
+	}
+	
+	
+	public void addHandler(InvocationHandlerExt handler){
+		handler.setTarget(this.handlerTarget);
+		this.handlerTarget = ProxyUtil.bind(orgClass, handler);
+		
+	}
+	
+	public void initFields(){
 		for(BeanField bf : beanFields){
 			Object target = bf.target;
 			bf.field.setAccessible(true);

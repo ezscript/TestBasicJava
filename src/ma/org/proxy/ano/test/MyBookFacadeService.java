@@ -1,7 +1,7 @@
 package ma.org.proxy.ano.test;
 
 import ma.org.proxy.BookFacade;
-import ma.org.proxy.ano.Service;
+import ma.org.proxy.ano.declare.Service;
 
 @Service(name = "myBookFacadeService" )
 public class MyBookFacadeService implements BookFacade{

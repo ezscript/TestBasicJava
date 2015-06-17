@@ -1,11 +1,11 @@
 package ma.org.proxy.ano;
 
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-import ma.org.proxy.ProxyUtil;
+import ma.org.proxy.ano.declare.InvocationHandlerExt;
 
-public class AnyProxy implements InvocationHandlerExt{
+
+public class DefaultProxy implements InvocationHandlerExt{
 	
 	private Object target;
 	

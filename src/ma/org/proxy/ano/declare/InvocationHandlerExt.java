@@ -1,4 +1,4 @@
-package ma.org.proxy.ano;
+package ma.org.proxy.ano.declare;
 
 import java.lang.reflect.InvocationHandler;
 

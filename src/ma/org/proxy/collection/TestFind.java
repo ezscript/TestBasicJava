@@ -33,9 +33,9 @@ public class TestFind {
 		for(Persion p: ps){
 			map.put(p.id, p);
 		}
+		System.out.println(map.size() == ps.size());
 		
 		for(String id : ids){
-			System.out.println(map.get(id).name);
 		}
 		
 	}
