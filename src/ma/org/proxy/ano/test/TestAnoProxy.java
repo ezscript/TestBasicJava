@@ -14,14 +14,14 @@ public class TestAnoProxy {
 	
 	public static void test(){
 		BeanFactory.init("ma.org.proxy.ano");
-		Object obj = BeanFactory.getBean("helloWorld");
-		System.out.println(obj);
-		System.out.println(obj.getClass());
+		MyAction action = (MyAction)BeanFactory.getBean("helloWorld");
 		
-		((MyAction)obj).JustDoIt();
-/*		System.out.println("xxxxxxxxxxxxxxxxxxx");
-		BookFacade bf = (BookFacade)BeanFactory.getBean("myBookFacadeService");
-		bf.addBook();*/
+		action.addBook();
+		
+		System.out.println("xxxxxxxxxxxxxxxxxxx");
+	//	action.JustDoIt();
+		
+		
 	}
 	
 

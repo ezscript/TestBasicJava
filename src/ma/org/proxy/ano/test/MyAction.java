@@ -11,14 +11,19 @@ public class MyAction {
 	private IBookFacade myBookFacadeService =null;
 	
 	
+	@AutoField
+	private IBookFacade xxService =null;
+	
 	public void JustDoIt(){
 		System.out.println("start JustDoIt");
 		myBookFacadeService.addBook();
 		System.out.println("over JustDoIt");
 	}
 	
-	public void abc(){
-		System.out.println("abc");
+	public void addBook(){
+		xxService.addBook();
 	}
+	
+	
 	
 }

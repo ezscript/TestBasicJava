@@ -71,7 +71,6 @@ public class BeanFactory {
 						bean.addHandler(aopBean.getProxy());
 					}
 				}
-				
 				if(bean.isNeedDefaultAop()){
 					bean.addHandler(new DefaultProxy());
 				}
@@ -295,7 +294,6 @@ public class BeanFactory {
     
     private static void addClass(Set<Class<?>> classes, String className) throws ClassNotFoundException {
     	classes.add(Thread.currentThread().getContextClassLoader().loadClass(className));
-		
 	}
 
 
