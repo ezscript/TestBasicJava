@@ -95,6 +95,7 @@ public class Bean {
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
 			}
+			bf.field.setAccessible(false);
 		}
 	}
 	

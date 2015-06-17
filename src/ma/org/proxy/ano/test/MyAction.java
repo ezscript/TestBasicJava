@@ -11,8 +11,8 @@ public class MyAction {
 	private IBookFacade myBookFacadeService =null;
 	
 	
-	@AutoField
-	private IBookFacade xxService =null;
+	@AutoField (name = "xxService")
+	private IBookFacade abcdefghijk =null;
 	
 	public void JustDoIt(){
 		System.out.println("start JustDoIt");
@@ -21,7 +21,7 @@ public class MyAction {
 	}
 	
 	public void addBook(){
-		xxService.addBook();
+		abcdefghijk.addBook();
 	}
 	
 	

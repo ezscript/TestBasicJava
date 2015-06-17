@@ -7,10 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * 不想写泛�?防止编译器报�?
- * @author MaXin
- */
 public class CreateUtil {
 	public static <T,V> Map<T,V> map(){
 		return new HashMap<T,V>();

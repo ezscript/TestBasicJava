@@ -28,15 +28,15 @@ public class BookFacadeProxy implements InvocationHandler {
 	}
 
 	/**
-	 * µ÷ÓÃ·½·¨
+	 * è°ƒç”¨æ–¹æ³•
 	 */
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 		Object result = null;
-		System.out.println("¿ªÊ¼");
-		// Ö´ĞĞ·½·¨
+		System.out.println("å¼€å§‹");
+		// æ‰§è¡Œæ–¹æ³•
 		result = method.invoke(target, args);
-		System.out.println("½áÊø");
+		System.out.println("ç»“æŸ");
 		return result;
 	}
 }

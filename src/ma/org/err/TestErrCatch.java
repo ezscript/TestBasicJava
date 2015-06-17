@@ -11,7 +11,7 @@ public class TestErrCatch implements UncaughtExceptionHandler {
 	public void uncaughtException(Thread t, Throwable e) {
 		System.out.println("TestErrCatch catch it...");
 		System.out.println(t.getName() + "; errMsg:" + e.getMessage());
-		throw new Error("Õâ¸öÒì³£Ã»ÈË¹Ü");
+		throw new Error("è¿™ä¸ªå¼‚å¸¸æ²¡äººç®¡");
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -26,7 +26,7 @@ public class TestErrCatch implements UncaughtExceptionHandler {
 				} catch (InterruptedException e) {
 				}
 				// try{
-					throw new RuntimeException("ÓÉ×ÓÏß³ÌÅ×³öµÄÒì³£");
+					throw new RuntimeException("ç”±å­çº¿ç¨‹æŠ›å‡ºçš„å¼‚å¸¸");
 				// }catch(Exception err){
 				// System.out.println("thread catch it");
 				// }
@@ -35,8 +35,8 @@ public class TestErrCatch implements UncaughtExceptionHandler {
 
 		Thread.sleep(2000);
 
-		System.out.println("2Ãëºó...");
+		System.out.println("2ç§’å...");
 
-		throw new RuntimeException("ÓÉÖ÷Ïß³ÌÅ×³öµÄÒì³£");
+		throw new RuntimeException("ç”±ä¸»çº¿ç¨‹æŠ›å‡ºçš„å¼‚å¸¸");
 	}
 }

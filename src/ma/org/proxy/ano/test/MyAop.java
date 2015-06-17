@@ -21,10 +21,10 @@ public class MyAop implements InvocationHandlerExt{
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 		Object result = null;
-		System.out.println("MyAop ... ¿ªÊ¼");
+		System.out.println("MyAop ... å¼€å§‹");
 		result = method.invoke(target, args);
 		
-		System.out.println("MyAop ... ½áÊø");
+		System.out.println("MyAop ... ç»“æŸ");
 		return result;
 	}
 

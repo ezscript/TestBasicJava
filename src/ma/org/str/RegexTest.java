@@ -13,7 +13,7 @@ public class RegexTest {
 		System.out.println(reg);
 		Pattern r = Pattern.compile(reg);
 
-	      // 现在创建 matcher 对象
+	      // 鐜板湪鍒涘缓 matcher 瀵硅薄
 	      Matcher m = r.matcher(name);
 	    System.out.println(  m.matches());
 	}
