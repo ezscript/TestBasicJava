@@ -2,6 +2,7 @@ package ma.org.reflect;
 
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class TestClass {
 
@@ -11,8 +12,12 @@ public class TestClass {
 		A a = new A();
 		Class c = A.class;
 		Field field = c.getDeclaredField("a");
-	//	field.setAccessible(true);
-		field.set(a, "123");
+		field.setAccessible(true);
+		field.set(a, "123456789");
+		field.setAccessible(false);
+		
+		Method m = c.getMethod("getA", null);
+		m.setAccessible(false);
 		
 		System.out.println(a.getA());
 	}
