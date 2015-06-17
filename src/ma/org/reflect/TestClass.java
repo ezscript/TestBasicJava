@@ -10,7 +10,7 @@ public class TestClass {
 	public static void main(String[] args) throws Exception {
 		AccessibleObject ao;
 		A a = new A();
-		Class c = A.class;
+		Class<A> c = A.class;
 		Field field = c.getDeclaredField("a");
 		field.setAccessible(true);
 		field.set(a, "123456789");
@@ -19,7 +19,8 @@ public class TestClass {
 		Method m = c.getMethod("getA", null);
 		m.setAccessible(false);
 		
-		System.out.println(a.getA());
+		System.out.println(m.invoke(a, null));
+		
 	}
 	
 	
