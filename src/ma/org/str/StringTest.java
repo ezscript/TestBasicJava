@@ -4,12 +4,12 @@ public class StringTest {
 
 	public static void main(String[] args) {
 		StringBuffer sb = new StringBuffer("abc");
-
+		sb.append(new Integer(3123));
 		System.out.println(sb.append(getObjInt()));
 	}
 	
 	private static Integer getObjInt() {
-		return 65538;
+		return null;
 	}
 
 	public void a(){
