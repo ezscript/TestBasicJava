@@ -1,4 +1,4 @@
-package ma.org.proxy.arr;
+package ma.org.arr;
 
 import java.util.Arrays;
 

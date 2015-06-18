@@ -1,6 +1,9 @@
 package ma.org.obj;
 
-public class TestObjTwo {
+/**
+ * 重载
+ */
+public class TestOverload {
 	
 	public static void print(Object obj){
 		System.out.println("print Obj");

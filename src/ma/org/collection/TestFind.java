@@ -1,4 +1,4 @@
-package ma.org.proxy.collection;
+package ma.org.collection;
 
 import java.util.ArrayList;
 import java.util.HashMap;

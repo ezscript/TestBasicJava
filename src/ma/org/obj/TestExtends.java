@@ -1,6 +1,9 @@
 package ma.org.obj;
 
-public class TestObjOne {
+/**
+ * 继承
+ */
+public class TestExtends {
 
 	public static void main(String[] args) {
 		ParentOne po = new ParentOne();
