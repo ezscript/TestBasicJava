@@ -6,9 +6,14 @@ public enum ConstantEnum {
 	C,
 	D,
 	E;
+	private ConstantEnum(){
+		
+	}
 	
 	public static void main(String [] args){
 		read(ConstantEnum.A);
+		
+		
 		
 	}
 	
