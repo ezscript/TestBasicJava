@@ -7,9 +7,8 @@ import java.util.Set;
 
 public class Two {
 
+	
 	public static void main(String[] args) {
-		
-		
 		
 		Properties properties = System.getProperties();
 		Set<Entry<Object, Object>>  set = properties.entrySet();
