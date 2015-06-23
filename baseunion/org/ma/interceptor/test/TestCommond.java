@@ -16,5 +16,8 @@ public class TestCommond {
 		String result = log.execute(new MyCommond("hello world"));
 		System.out.println("result:" + result);
 		
+		
+		result = log.execute(new MyCommond("abc"));
+		System.out.println("result:" + result);
 	}
 }

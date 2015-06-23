@@ -5,10 +5,18 @@ import org.ma.interceptor.filter.FilterChainExecutor;
 public class TestFilter {
 	
 	public static void main(String [] args){
-		FilterChainExecutor fc = new FilterChainExecutor();
+		final FilterChainExecutor fc = new FilterChainExecutor();
 		fc.addFilter(new FilterA());
 		fc.addFilter(new FilterB());
 		
-		fc.doCommond(new TargetCommond());
+		for(int i = 0 ; i< 100; i++){
+			final String mark = String.valueOf(i);
+			new Thread(){
+				public void run(){
+					fc.doCommond(new TargetCommond(mark));
+				}
+			}.start();
+		}
+		
 	}
 }

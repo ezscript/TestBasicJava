@@ -12,9 +12,9 @@ public class FilterA implements IFilter {
 	}
 
 	public void doFilter(Request req, Response resp, IFilterChain filterChain) {
-		System.out.println("a start...");
+		System.out.println(Thread.currentThread() + ": a start...");
 		filterChain.doFilter(req, resp);
-		System.out.println("a end...");
+		System.out.println(Thread.currentThread() + ": a end...");
 	}
 
 	public void init() {
