@@ -19,9 +19,11 @@ public class TestMultiple {
         two.setTarget(oneProxy);
         
         Object twoProxy =  ProxyUtil.bind(BookFacadeImpl.class,two);  
-        System.out.println(twoProxy);
-        System.out.println(twoProxy.getClass());
-        ((IBookFacade)twoProxy).addBook();  
+    //    System.out.println(twoProxy.toString());
+    //  System.out.println(twoProxy.getClass());
+         ((IBookFacade)twoProxy).addBook();  
+        
+   //     System.out.println( twoProxy.getClass());
 	}
 
 	

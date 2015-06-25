@@ -15,6 +15,7 @@ public class StringTest {
 	public void a(){
 		String strA = new String("A");
 		// String strA = "A";
+		
 	}
 
 	public static String b(){

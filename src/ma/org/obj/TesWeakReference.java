@@ -8,12 +8,11 @@ public class TesWeakReference {
 	public static void main(String[] args) {
 	//	testBasic();
 	//	testEntry();
-		int a = 10;
-		 AtomicInteger nextHashCode = new AtomicInteger();
-		 System.out.println(nextHashCode.getAndAdd(1));
-		 System.out.println(nextHashCode.getAndAdd(1));
-		 System.out.println(nextHashCode.getAndAdd(1));
-		 System.out.println(nextHashCode.getAndAdd(1));
+		AtomicInteger nextHashCode = new AtomicInteger();
+		System.out.println(nextHashCode.getAndAdd(1));
+		System.out.println(nextHashCode.getAndAdd(1));
+		System.out.println(nextHashCode.getAndAdd(1));
+		System.out.println(nextHashCode.getAndAdd(1));
 	}
 	
 
@@ -24,7 +23,7 @@ public class TesWeakReference {
             value = v;
         }
     } 
-
+	
 	
 	public static void testBasic(){
 		Object abc =new Object();
