@@ -1,4 +1,3 @@
-
 package org.ma.interceptor;
 
 public abstract class CommandInterceptor implements CommandExecutor {
