@@ -65,7 +65,7 @@ public class BeanFactory {
 		}
 		
 	
-		CollectionUtil.optMapEntry(beanMap, new CollectionUtil.IOptMap<String,Bean>() {
+		CollectionUtil.optMapEntry(beanMap, new CollectionUtil.IOptMapEntry<String,Bean>() {
 			public void opt(String beanName, Bean bean) {
 				for(AopBean aopBean : aopBeanSet){
 					if(aopBean.matches(beanName)){
@@ -78,7 +78,7 @@ public class BeanFactory {
 			}
 		});
 		
-		CollectionUtil.optMapEntry(beanMap, new CollectionUtil.IOptMap<String,Bean>() {
+		CollectionUtil.optMapEntry(beanMap, new CollectionUtil.IOptMapEntry<String,Bean>() {
 			public void opt(String beanName, Bean bean) {
 				bean.initFields();
 			}

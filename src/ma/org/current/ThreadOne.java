@@ -1,7 +1,10 @@
 package ma.org.current;
 
 import java.util.concurrent.atomic.AtomicInteger;
-
+/**
+ * object 
+ *
+ */
 public class ThreadOne {
 		 
 	public volatile boolean isRun = false;
@@ -30,6 +33,7 @@ public class ThreadOne {
                 public void run() {
                     for(int j=0;j<10;j++)
                         test.increase();
+              //      System.out.println(Thread.currentThread() == this);
                 };
             }.start();
         }
