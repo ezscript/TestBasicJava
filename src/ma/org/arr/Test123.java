@@ -1,5 +1,7 @@
 package ma.org.arr;
 
+import java.util.Arrays;
+
 public class Test123 {
 	
 	public static void main(String[] args) {

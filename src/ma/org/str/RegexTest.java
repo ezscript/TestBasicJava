@@ -9,13 +9,17 @@ public class RegexTest {
 		String name = "nbxodService";
 		String reg = "*Service";
 		
+		
 		reg = reg.replaceAll("\\*", "\\\\w*");
 		System.out.println(reg);
 		Pattern r = Pattern.compile(reg);
 
-	      // 现在创建 matcher 对象
-	      Matcher m = r.matcher(name);
+	    // 现在创建 matcher 对象
+	    Matcher m = r.matcher(name);
 	    System.out.println(  m.matches());
+	    
+
+	    
 	}
 
 }
