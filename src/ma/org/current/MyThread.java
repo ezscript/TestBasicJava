@@ -32,7 +32,7 @@ public class MyThread {
 
 	@Override
 	public String toString() {
-		return "MyThread []";
+		return "MyThread []ji"; 
 	}
 	
 	
