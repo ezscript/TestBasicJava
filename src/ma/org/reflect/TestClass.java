@@ -16,13 +16,20 @@ public class TestClass {
 		Thread.sleep(500);
 		
 		reflectEnum();
+		
 	}
 	
 	
 	private static void testClass() throws Exception{
 		
 		AccessibleObject ao;
-		A a = new A();
+	//	A a = new A();
+		Class<A> ac = A.class;
+		Constructor<?>[] constructors = ac.getDeclaredConstructors();
+		constructors[0].setAccessible(true);
+		A a =(A)constructors[0].newInstance();
+		System.out.println("初始化构造函数");
+		
 		Class<A> c = A.class;
 		Field field = c.getDeclaredField("a");
 		field.setAccessible(true);
