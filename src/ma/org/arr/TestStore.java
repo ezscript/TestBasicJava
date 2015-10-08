@@ -8,7 +8,7 @@ public class TestStore {
 	
 	public static void main(String[] args) {
 		init();
-		
+	
 		print(ItemEnum.id);
 		
 		print(ItemEnum.name);

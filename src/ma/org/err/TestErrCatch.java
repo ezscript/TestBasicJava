@@ -1,5 +1,7 @@
 package ma.org.err;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.Thread.UncaughtExceptionHandler;
 
 public class TestErrCatch implements UncaughtExceptionHandler {

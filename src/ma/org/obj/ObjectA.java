@@ -6,6 +6,7 @@ public class ObjectA {
 	private String s = "";
 	
 	public static void main(String[] args) {
+		String str = "A00012,B00123,H0021";
 		
 		ObjectA a = new ObjectA();
 		
@@ -23,5 +24,19 @@ public class ObjectA {
 	public int getA(){
 		return a;
 	}
-
+	
+	public void test (){
+		int o = 10;
+		switch(o){
+			case 0:
+				System.out.println(0);
+				break;
+			case 1:
+				System.out.println(1);
+				break;
+			case 2:
+				System.out.println(2);
+				break;
+		}
+	}
 }

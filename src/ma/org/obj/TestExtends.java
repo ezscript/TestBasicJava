@@ -21,15 +21,18 @@ class ParentOne{
 	
 	private int a;
 	private int b;
-	
+	public int add(String a, int b){
+		this.b  = b;
+		return add();
+	}
 	
 	public int add(int a, int b){
 		this.a = a;
 		this.b  = b;
-		return a();
+		return add();
 	}
 
-	public int a(){
+	public int add(){
 		return a +b;
 	}
 
