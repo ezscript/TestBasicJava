@@ -123,7 +123,7 @@ public class ReflectUtil {
                         // log.error("在扫描用户定义视图时从jar包获取文件出错");
                         e.printStackTrace();
                     }
-                }
+                }//end else if ("jar".equals(protocol)) {
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -32,7 +32,6 @@ public class BeanFactory {
 	public static void init(String pack){
 		Set<Class<?>> set = ReflectUtil.getClasses(pack);
 		
-		
 		Set<Class<?>> serviceSet = CreateUtil.set();
 		Set<Class<?>> actionSet = CreateUtil.set();
 		Set<Class<?>> aopSet = CreateUtil.set();
@@ -87,10 +86,7 @@ public class BeanFactory {
 	}
 	
 	
-	
-	
 	private static void addAop(Class<?> c) {
-	
 		AopBean aopBean = new AopBean();
 		aopBean.setProxyClass(c);
 		Aop aop = (Aop)c.getAnnotation(Aop.class);

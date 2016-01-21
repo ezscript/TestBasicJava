@@ -1,0 +1,4 @@
+Microsoft Windows XP [版本 5.1.2600]
+(C) 版权所有 1985-2001 Microsoft Corp.
+
+Z:\share\code\work_test\TestBasicJava\antDest>

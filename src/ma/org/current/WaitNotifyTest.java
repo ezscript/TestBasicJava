@@ -14,8 +14,25 @@ public class WaitNotifyTest {
 		}
 		System.out.println("start notify ");
 		
-		new Th("to",t).start();
+		new Th("to",to).start();
+		Thread.sleep(100);
+//		notifyOne(t);
+		notifyAll(t);
 		
+		
+		synchronized (to) {
+			to.notify();
+		}
+	}
+	
+	private static void notifyAll(Object t) {
+		synchronized (t) {
+			t.notifyAll();
+		}
+		
+	}
+
+	private static void notifyOne(Object t) throws InterruptedException {
 		for(int i = 0 ; i< 100; i++){
 			Thread.sleep(100);
 			synchronized (t) {
@@ -23,11 +40,8 @@ public class WaitNotifyTest {
 			}
 		}
 		
-		synchronized (to) {
-			to.notify();
-		}
 	}
-	
+
 	public static class Th extends Thread {
 		public Object waitObj = null;
 		public String name = "";

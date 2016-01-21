@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="activiti.engine.examples" default="compile">
+
+	<property name="target.dir" value="./antDest" />
+
+	<property name="url" value="" />
+
+	
+  <target name="clean">
+    <delete dir="${target.dir}" />
+  </target>
+	
+  <target name="compile" >
+    <mkdir dir="${target.dir}"/>
+  	
+  	<exec  executable="cmd.exe"  >
+  	   <arg value="/c"/>
+  	    <arg value="ant.bat"/>
+  	    <arg value="-p"/>
+	</exec>
+  </target>
+	
+	
+	
+</project>
